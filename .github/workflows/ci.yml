@@ -45,6 +45,7 @@ jobs:
     - name: Type check with mypy
       run: |
         mypy .
+      working-directory: ./src
 
     - name: Archive coverage results
       if: always()
