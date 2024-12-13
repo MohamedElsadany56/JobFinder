@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Empowering Communities{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/HomeStyle.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+  {% block extra_css %}
+  {% endblock %}
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">JobFinder</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="cta-btn">Sign Up</button></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  {% block content %}
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Empower. All rights reserved.</p>
+    <ul class="social-links">
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <script src="{% static 'js/Home.js' %}"></script>
+  {% block extra_js %}
+  {% endblock %}
+</body>
+</html>

@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Task
 from .form import postTask
 
+def index(request):
+    return render(request, 'index.html')
+
 def post_task(request):
     if request.method == 'POST':
         form = postTask(request.POST, request.FILES)

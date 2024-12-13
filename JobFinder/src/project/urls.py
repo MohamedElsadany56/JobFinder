@@ -19,12 +19,17 @@ from django.urls import include,path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import redirect
-from django.contrib.auth import views 
+from project import views
 urlpatterns = [
-    #path('user/', user, name='user'),
-    path('api-auth/', include('rest_framework.urls')),
+    path('', views.homepage, name='homepage'),
+    path('user/', include('django.contrib.auth.urls')),
     path('user/', include('user.urls',namespace='user')),
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('tasks/', include('task.urls', namespace='tasks')),
+    
+
+   # path('PostTask/', views.postTask, name='post_task'),
 ]
 
+urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
