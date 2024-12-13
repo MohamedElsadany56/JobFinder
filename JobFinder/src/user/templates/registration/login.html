@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/Login.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+  <div class="main-body">
+    <div class="form">
+      <h2>Login to Your Account</h2>
+      {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    
+    {% if next %}
+      {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+      {% else %}
+        <p>Please login to see this page.</p>
+      {% endif %}
+    {% endif %}  
+    <form method="post" class="login-form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button type="submit" class="btn-login">Login</button>
+  </form>
+  
+      <div class="registerNow">
+        {% comment %} <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up!</a></p> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
