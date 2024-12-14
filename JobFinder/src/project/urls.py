@@ -27,9 +27,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('tasks/', include('task.urls', namespace='tasks')),
-    
 
-   # path('PostTask/', views.postTask, name='post_task'),
 ]
 
 urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
