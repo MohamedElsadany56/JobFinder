@@ -7,14 +7,17 @@ def index(request):
 
 def post_task(request):
     if request.method == 'POST':
-        form = postTask(request.POST, request.FILES)
+        form = postTask(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            task.owner = request.user
+            task.owner = request.user  # Assign the task owner to the logged-in user
             task.save()
+            print("done")
             return redirect('tasks:taskList')  # Update with an appropriate redirect
+        else:
+            print(form.errors)  # This will print out any form validation errors
     else:
-        form = postTask()
+        form = postTask()  # Show an empty form for GET requests
     return render(request, 'task/postTask.html', {'form': form})
 
 def task_list (request):

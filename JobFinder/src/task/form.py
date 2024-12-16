@@ -7,5 +7,5 @@ from .models import Task
 
 class postTask(forms.ModelForm):
     class Meta:
-        model = Task
-        fields = '__all__'
+       model = Task
+       fields = ['title', 'taskDescription', 'category', 'location', 'budget', 'deadline']
