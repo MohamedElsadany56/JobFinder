@@ -1,53 +1,41 @@
-name: Django Tests
+name: Django CI Test (Windows)
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:latest
-        ports:
-          - "5432:5432"
-        env:
-          POSTGRES_USER: django
-          POSTGRES_PASSWORD: django
-          POSTGRES_DB: test_db
-        options: >-
-          --health-cmd="pg_isready -U django"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+    runs-on: windows-latest  # Use a Windows runner
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Check out the repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.12.8" 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.12.8' 
 
-      - name: Set up database
-        working-directory: src
-        run: |
-          python manage.py makemigrations
-          python manage.py migrate
+    - name: Install dependencies
+      run: |
+        python -m venv venv   # Create a virtual environment
+        .\venv\Scripts\activate  # Activate the virtual environment
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Install dependencies
 
-      - name: Run tests
-        env:
-          DATABASE_URL: postgres://django:django@localhost:5432/test_db
-        run: |
-          python manage.py test user.tests
+    - name: Run migrations
+      run: |
+        cd JobFinder
+        .\Scripts\activate  
+        cd src
+        python manage.py makemigrations
+        python manage.py migrate
+
+    - name: Run Tests
+      run: |
+        .\venv\Scripts\activate
+        cd JobFinder
+        python manage.py test
