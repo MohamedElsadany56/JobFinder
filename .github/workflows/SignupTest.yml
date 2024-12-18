@@ -19,22 +19,22 @@ jobs:
       with:
         python-version: '3.12.8'
 
-    - name: Install dependencies
+    - name: Install dependencies and set up virtual environment
       run: |
-        python -m venv venv             # Create a virtual environment
-        .\venv\Scripts\activate         # Activate the virtual environment
+        python -m venv venv               # Create a virtual environment
+        .\venv\Scripts\activate           # Activate the virtual environment
         python -m pip install --upgrade pip
-        pip install -r requirements.txt # Install dependencies
+        pip install -r requirements.txt   # Install dependencies
 
     - name: Run migrations
       run: |
-        .\venv\Scripts\activate         # Activate the virtual environment
-        cd JobFinder/src                # Navigate to JobFinder/src where manage.py is
+        .\venv\Scripts\activate           # Activate the virtual environment
+        cd src                            # Navigate to the directory containing manage.py
         python manage.py makemigrations
         python manage.py migrate
 
     - name: Run Tests
       run: |
-        .\venv\Scripts\activate         # Activate the virtual environment
-        cd JobFinder/src                # Navigate to JobFinder/src
+        .\venv\Scripts\activate           # Activate the virtual environment
+        cd src                            # Navigate to the directory containing manage.py
         python manage.py test
