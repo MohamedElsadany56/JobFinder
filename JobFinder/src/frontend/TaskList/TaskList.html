@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="statics/css/TaskList.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+{% extends 'baseGeneric.html' %}
+{% load static %}
+
+{% block title %}TaskList{% endblock %}
+
+
+{% block content %}
     <title>TaskList</title>
   </head>
   <body>
@@ -102,6 +93,7 @@
           data-qualification="bachelor"
           data-gender="male"
         >
+        {% for task in tasks %}
           <div class="job">
             <a href="#">
               <img
@@ -110,23 +102,24 @@
               />
             </a>
             <div class="text">
-              <a href="#"><h2>Software Engineer</h2></a>
+              <a href="{% url 'tasks:taskDetail' task.slug %}"><h2>{{task.title}}</h2></a>
               <div class="secondary-info">
                 <div class="country">
-                  <div class="location"><p>California , USA</p></div>
-                  <div class="duration"><p>Part-time</p></div>
+                  <div class="location"><p>location {{task.location}}</p></div>
+                  <div class="duration"><p>deadline{{task.deadline|date:'d M o'}}</p></div>
                 </div>
               </div>
             </div>
             <div class="buttons">
               <div class="apply">
-                <a href="#"><button>Apply</button></a>
+                <a href="{% url 'tasks:taskDetail' task.slug %}"><button>Apply</button></a>
               </div>
             </div>
           </div>
         </li>
       </ul>
     </div>
-    <script src="statics/js/TaskList.js"></script>
+    {% endfor %}
   </body>
 </html>
+{% endblock %}

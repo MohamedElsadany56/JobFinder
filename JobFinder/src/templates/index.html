@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
-
 {% block title %}Home{% endblock %}
 
 {% block content %}
 <section id="home" class="hero">
   <h1>Empowering Communities, One Task at a Time</h1>
   <p>Join our inclusive platform to connect, collaborate, and create opportunities.</p>
+  {% if request.user.is_authenticated %}
   <div class="cta-buttons">
-    <button>Post a Task</button>
-    <button>Find a Job</button>
+    <a href="{% url 'tasks:postTask' %}" class="link-button">Post a Task</a>
+    <a href="{% url 'tasks:taskList' %}" class="link-button">Find a Task</a>
   </div>
 </section>
+{% else %}
+<a href="{% url 'login' %}"class="link-button" >Login</a> 
+{% endif %}
 <section id="features">
   <h2>Our Features</h2>
   <div class="feature-cards">
