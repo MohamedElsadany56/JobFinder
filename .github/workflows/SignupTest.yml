@@ -19,6 +19,13 @@ jobs:
       with:
         python-version: '3.12.8'
 
+    - name: Debug Paths
+      run: |
+        echo "Current Directory:"
+        pwd
+        echo "Files in Current Directory:"
+        ls -R
+
     - name: Install dependencies and set up virtual environment
       run: |
         python -m venv venv               # Create a virtual environment
@@ -29,12 +36,12 @@ jobs:
     - name: Run migrations
       run: |
         .\venv\Scripts\activate           # Activate the virtual environment
-        cd src                            # Navigate to the directory containing manage.py
+        cd JobFinder/JobFinder/src        # Navigate to the correct directory
         python manage.py makemigrations
         python manage.py migrate
 
     - name: Run Tests
       run: |
         .\venv\Scripts\activate           # Activate the virtual environment
-        cd src                            # Navigate to the directory containing manage.py
+        cd JobFinder/JobFinder/src        # Navigate to the correct directory
         python manage.py test
