@@ -36,7 +36,7 @@ jobs:
     - name: Run migrations
       run: |
         .\venv\Scripts\activate           # Activate the virtual environment
-        cd JobFinder/JobFinder/src        # Navigate to the correct directory
+        cd JobFinder/JobFinder/JobFinder/src        # Navigate to the correct directory
         python manage.py makemigrations
         python manage.py migrate
 
