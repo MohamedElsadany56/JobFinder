@@ -17,25 +17,24 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.12.8' 
+        python-version: '3.12.8'
 
     - name: Install dependencies
       run: |
-        python -m venv venv   # Create a virtual environment
-        .\venv\Scripts\activate  # Activate the virtual environment
+        python -m venv venv             # Create a virtual environment
+        .\venv\Scripts\activate         # Activate the virtual environment
         python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Install dependencies
+        pip install -r requirements.txt # Install dependencies
 
     - name: Run migrations
       run: |
-        cd JobFinder
-        .\Scripts\activate  
-        cd src
+        .\venv\Scripts\activate         # Activate the virtual environment
+        cd JobFinder/src                # Navigate to JobFinder/src where manage.py is
         python manage.py makemigrations
         python manage.py migrate
 
     - name: Run Tests
       run: |
-        .\venv\Scripts\activate
-        cd JobFinder
+        .\venv\Scripts\activate         # Activate the virtual environment
+        cd JobFinder/src                # Navigate to JobFinder/src
         python manage.py test
