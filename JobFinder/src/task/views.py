@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Task
 from .form import postTask ,ApplyForm
 from django.contrib.auth.decorators import login_required
+
 def index(request):
     return render(request, 'index.html')
 @login_required
@@ -21,6 +22,10 @@ def post_task(request):
         form = postTask()  # Show an empty form for GET requests
     return render(request, 'task/postTask.html', {'form': form})
 
+# def task_list (request):
+#     task_list = Task.objects.all()
+#     context = {'tasks':task_list}
+#     return render(request,'task/taskList.html',context)
 def task_list(request):
     tasks = Task.objects.all()
 
@@ -64,6 +69,8 @@ def task_detail(request, slug):
         myform.save()
 
     context = {'task': task_detail, 'form1': form}
-    return render(request, 'task/taskDetail.html', context)
+    return render(request, 'task/ApplyTask.html', context)
+
+
 
 

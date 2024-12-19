@@ -21,6 +21,7 @@ class Task (models.Model):
     publishedAt = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, blank=True, null=True)
+    applicants = models.ManyToManyField(User, related_name='applied_tasks', through='Application') # Many to many relationship with User 
     
     def __str__(self):
         return self.title
@@ -32,29 +33,23 @@ class Task (models.Model):
         super(Task, self).save(*args, **kwargs)
 
  
-    # location to be added
-    # list of applicants
-
-
-# class ListApplicants(models.Model):
-#     name =  models.CharField(max_length=30)
-#     def __str__(self):
-#         return self.name
 
 
 class Apply(models.Model):
     Task = models.ForeignKey(Task, related_name='apply_job', on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
 
-
-
     def __str__(self):
         return self.name
 
 
+class Application(models.Model):
+    task = models.ForeignKey(Task, related_name='applications', on_delete=models.CASCADE)
+    applicant = models.ForeignKey(User, related_name='applications', on_delete=models.CASCADE)
+    applied_at = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):
-        return self.name
+        return f"{self.applicant.username} applied for {self.task.title}"
 
 def updateStatus ():
     pass
