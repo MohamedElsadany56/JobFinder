@@ -7,7 +7,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Empowering Communities{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/HomeStyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/TaskList.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +22,14 @@
     <div class="logo">JobFinder</div>
     <nav>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="/">home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><button class="cta-btn">Sign Up</button></li>
+
+        <a href="{% url 'login' %}" >Sign up</a> 
+        <a href="{% url 'user:signup' %}" >Login</a> 
       </ul>
     </nav>
   </header>
@@ -46,6 +49,7 @@
   </footer>
 
   <script src="{% static 'js/Home.js' %}"></script>
+  <script src="{% static 'js/TaskList.js' %}"></script>
   {% block extra_js %}
   {% endblock %}
 </body>

@@ -11,7 +11,7 @@
 <main>
   <div class="task-form-container">
     <h2>Post a Task</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
         <label for="title">Task Title</label>

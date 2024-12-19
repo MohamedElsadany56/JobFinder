@@ -27,6 +27,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#logging
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'django_debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
 
 # Application definition
 
