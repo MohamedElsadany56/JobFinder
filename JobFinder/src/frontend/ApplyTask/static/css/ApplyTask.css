@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --mainFontFamily: "Space Grotesk";
+}
+
+body {
+    background-color: white;
+    color: #222222;
+    position: absolute;
+    bottom: 40vh;
+    text-align: center;
+    font-family: var(--mainFontFamily);
+}
+
+.ApplyTask {
+    position: absolute;
+    top: -7vh;
+    left: 4%;
+}
+header {
+    margin: 20px;
+    margin-bottom: 50px;
+    font-size: 3vh;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    bottom: -22vh;
+    animation: slide-in 1s ease-out;
+    -webkit-animation: slide-in 1s ease-out;
+}
+
+header .main-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--mainFontFamily);
+}
+
+header .main-header h2 {
+    margin-bottom: 30px;
+    animation: fade-in 1s ease-out 0.5s both;
+    -webkit-animation: fade-in 1s ease-out 0.5s both;
+}
+
+header .main-header p {
+    color: #585858;
+    margin-bottom: 5px;
+    animation: fade-in 1s ease-out 0.7s both;
+    -webkit-animation: fade-in 1s ease-out 0.7s both;
+}
+
+.main-body {
+    text-align: center;
+    position: relative;
+    bottom: -20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: pop-in 1.2s ease-out;
+    -webkit-animation: pop-in 1.2s ease-out;
+}
+
+.main-body .form {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    width: 60%;
+}
+
+.main-body .form .main-header {
+    margin-bottom: 20px;
+}
+
+.main-body .form form input, 
+.main-body .form form textarea, 
+.main-body .form form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 7px;
+    background-color: #f0efef;
+    border: none;
+    color: #898889;
+    font-size: 20px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    resize: none;
+    -webkit-transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+    -moz-transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+    -ms-transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+    -o-transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.main-body .form form textarea {
+    height: 120px;
+    padding: 20px;
+}
+
+.main-body .form form select {
+    height: 60px; 
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+.main-body .form form input:hover,
+.main-body .form form textarea:hover,
+.main-body .form form select:hover,
+.main-body .form form input:focus,
+.main-body .form form textarea:focus,
+.main-body .form form select:focus {
+    outline: none;
+    box-shadow: #6C63FF 0px 0px 10px 2px;
+    transform: scale(1.03);
+}
+
+.main-body .form form button {
+    background: rgb(169,165,253);
+    background: linear-gradient(76deg, purple 0%, rgb(129, 129, 229) 70% , rgb(76, 76, 230) 100%);
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--mainFontFamily);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    border: none;
+    -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -moz-transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -ms-transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -o-transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-body .form form button:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 15px;
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+}
+
+.main-body .form .registerNow a,
+.main-body .forget-password a {
+    color: #898889;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+}
+
+.main-body .form .registerNow a:hover,
+.main-body .forget-password a:hover {
+    color: #2f00ff;
+    text-decoration: underline;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slide-in {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pop-in {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.main-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f0efef;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-family: var(--mainFontFamily);
+    left: 0px;
+}
+
+.main-bar ul {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 90px;
+}
+
+.main-bar ul li {
+    margin: 0 ;
+}
+
+.main-bar ul li img {
+    width: 183px;
+}
+
+.main-bar ul li a {
+    text-decoration: none;
+    color: #222222;
+    font-size: 22px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.main-bar ul li a:hover {
+    color: #6C63FF;
+    transform: scale(1.1);
+}
+
+.main-bar ul li.active a {
+    color: #6C63FF;
+    text-decoration: underline;
+}
+
+.main-bar ul li.user-icon {
+    margin-right: 20px;
+}
+
+.main-bar ul li.user-icon a i {
+    font-size: 24px; 
+}
+.main-body .form ul 
+{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
+    width: 100%;
+}
+.main-body .form ul li 
+{
+    margin-bottom: 4vh;
+    text-align: center;
+    background-color: #eee;
+    padding: 20px;
+    font-family: var(--mainFontFamily);
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+    width: 45%;
+}
+.main-body .form ul li a 
+{
+    text-decoration: none;
+    color: #898889;
+    font-size:17px;
+
+}
+.main-body .form ul li:hover 
+{
+    outline: none;
+    border: none;
+    box-shadow: #6C63FF 0px 0px 10px 2px;
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+}
+.main-body .form ul li.active  
+{
+    outline: none;
+    border: none;
+    box-shadow: #6C63FF 0px 0px 10px 2px;
+    transform: scale(1.03);
+
+}
+
+#Jop {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#Jop.show {
+    display: block;
+    opacity: 1;
+}
+.ApplyTask .main-body .form .main-header h2 
+{
+    font-family:var(--mainFontFamily);
+    font-size:40px;
+    margin-bottom: 40px;
+}
+
+.task-box {
+    width: 440px; /* Match form width */
+    min-height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--mainFontFamily);
+    font-size: 20px;
+    color: #898889;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.main-body .task-box {
+    width: 60%;
+    min-height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--mainFontFamily);
+    font-size: 20px;
+    color: #898889;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.main-body .task-box ul
+{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.main-body .task-box ul li 
+{
+    margin-bottom: 40px;
+}
+.task-box .task-details {
+    width: 100%;
+}
+.task-box .task-details .task-info {
+    width: 100%;
+}
+
+.task-box .task-details h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.task-box .task-details .task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.task-box .task-details .price-location,
+.task-box .task-details .time-info {
+    display: flex;
+    justify-content: space-between;
+    color: #444;
+}
+
+.task-box .task-details span {
+    font-size: 16px;
+}
+
+.task-box .task-details .price {
+    color: #6C63FF;
+    font-weight: bold;
+}
+
+.task-box .task-details .task-description {
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.task-box .task-details .task-requirements {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.task-box .task-details .task-requirements h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.task-box .task-details .task-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-box .task-details .task-requirements ul li {
+    margin: 8px 0;
+    color: #555;
+    font-size: 16px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.task-box .task-details .task-requirements ul li::before {
+    content: "•";
+    color: #6C63FF;
+    position: absolute;
+    left: 0;
+}
+
+.task-box .task-details i {
+    margin-right: 8px;
+    color: #6C63FF;
+}
+
+.task-box .task-details .applicants-info {
+    display: flex;
+    justify-content: flex-end;
+    color: #444;
+    font-size: 14px;
+    padding-top: 5px;
+    border-top: 1px solid #eee;
+}
+
+.task-box .task-details .applicants-count {
+    color: #6C63FF;
+    font-weight: 500;
+}
+
+.task-box .task-details .applicants-count i {
+    margin-right: 5px;
+}
