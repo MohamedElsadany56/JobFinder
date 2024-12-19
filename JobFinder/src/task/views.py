@@ -22,6 +22,7 @@ def post_task(request):
         form = postTask()  # Show an empty form for GET requests
     return render(request, 'task/postTask.html', {'form': form})
 
+<<<<<<< HEAD
 # def task_list (request):
 #     task_list = Task.objects.all()
 #     context = {'tasks':task_list}
@@ -51,8 +52,33 @@ def task_list(request):
 
     context = {'tasks': tasks}
     return render(request, 'task/TaskList.html', context)
+=======
+def task_list(request):
+    tasks = Task.objects.all()
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
 
+    # Apply filters
+    keyword = request.GET.get('keyword', '')
+    if keyword:
+        tasks = tasks.filter(title__icontains=keyword)
 
+    location = request.GET.get('location', '')
+    if location:
+        tasks = tasks.filter(location=location)
+
+    category = request.GET.get('category', '')
+    if category:
+        tasks = tasks.filter(category=category)
+
+    # Sorting logic
+    sort_by = request.GET.get('sort', 'recent')
+    if sort_by == 'recent':
+        tasks = tasks.order_by('-publishedAt')  # Assuming publishedAt is the field to sort by
+    elif sort_by == 'oldest':
+        tasks = tasks.order_by('publishedAt')
+
+    context = {'tasks': tasks}
+    return render(request, 'task/TaskList.html', context)
 
 def task_detail(request, slug):
     if not slug:  # Check if slug is None or empty

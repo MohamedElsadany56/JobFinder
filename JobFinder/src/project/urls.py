@@ -22,6 +22,7 @@ from django.shortcuts import redirect
 from project import views
 urlpatterns = [
     path('', views.homepage, name='homepage'),
+    path('howitworks/', views.howitworks, name='howitworks'),
     path('user/', include('django.contrib.auth.urls')),
     path('user/', include('user.urls',namespace='user')),
     path('api-auth/', include('rest_framework.urls')),
