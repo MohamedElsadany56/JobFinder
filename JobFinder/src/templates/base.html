@@ -17,40 +17,44 @@
   {% endblock %}
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <div class="logo">JobFinder</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/">home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <div class="page-container">
+    <!-- Header Section -->
+    <header>
+      <div class="logo">JobFinder</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="{% url 'howitworks' %}">How It Works</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <a href="{% url 'login' %}">Sign up</a>
+          <a href="{% url 'user:signup' %}">Login</a>
+        </ul>
+      </nav>
+    </header>
 
-        <a href="{% url 'login' %}" >Sign up</a> 
-        <a href="{% url 'user:signup' %}" >Login</a> 
+    <!-- Main Content -->
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Empower. All rights reserved.</p>
+      <ul class="social-links">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
       </ul>
-    </nav>
-  </header>
-  
-  <!-- Main Content -->
-  {% block content %}
-  {% endblock %}
+    </footer>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Empower. All rights reserved.</p>
-    <ul class="social-links">
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">LinkedIn</a></li>
-    </ul>
-  </footer>
-
-  <script src="{% static 'js/Home.js' %}"></script>
-  <script src="{% static 'js/TaskList.js' %}"></script>
   {% block extra_js %}
+  <script src="{% static 'js/Home.js' %}"></script>
   {% endblock %}
 </body>
+
+
 </html>
