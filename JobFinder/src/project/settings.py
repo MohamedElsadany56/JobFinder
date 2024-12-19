@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     'review',
     'match',
     'invoice',
-    'rest_framework',
+    #'rest_framework',
     'bootstrap5',
 
 ]
