@@ -7,6 +7,7 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
+  
 }
 
 header {
@@ -16,6 +17,8 @@ header {
   background-color: #007bff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+
 }
 
 .nav-links {
@@ -134,13 +137,14 @@ header {
   background: #0056b3;
 }
 
-/* Footer */
 footer {
   background: #333;
   color: white;
   text-align: center;
   padding: 1.5rem 0;
+  margin-top: auto; /
 }
+
 
 footer .social-links {
   display: flex;
@@ -148,6 +152,7 @@ footer .social-links {
   gap: 1rem;
   list-style: none;
   padding: 0;
+  position: sticky;
 }
 
 footer .social-links a {
@@ -172,4 +177,16 @@ footer .social-links a:hover {
   .feature-cards {
       grid-template-columns: 1fr;
   }
+}
+/* Page Wrapper */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 1rem;
 }
