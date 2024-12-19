@@ -35,10 +35,14 @@ jobs:
 
     - name: Run migrations
       run: |
-        .\venv\Scripts\activate           # Activate the virtual environment
-        cd JobFinder/JobFinder/JobFinder/src        # Navigate to the correct directory
-        python manage.py makemigrations
-        python manage.py migrate
+            echo "Current Directory:"
+            pwd
+            echo "Listing all files and folders:"
+            dir
+            .\venv\Scripts\activate           # Activate the virtual environment
+            cd JobFinder\src        # Navigate to the correct directory
+            python manage.py makemigrations
+            python manage.py migrate
 
     - name: Run Tests
       run: |
