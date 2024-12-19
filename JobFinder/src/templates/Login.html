@@ -12,8 +12,7 @@
     <div class="form">
       <h2>Login to Your Account</h2>
       <form action="{% url 'login' %}" method="post" class="login-form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
+
         <div class="form-group">
             <input type="email" name="email" placeholder="Email Address" required>
         </div>
@@ -21,6 +20,7 @@
             <input type="password" name="password" placeholder="Password" required>
         </div>
         <button type="submit" class="btn-login">Login</button>
+        
     </form>
     
       <div class="registerNow">
