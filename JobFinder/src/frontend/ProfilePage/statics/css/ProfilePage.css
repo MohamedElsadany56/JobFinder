@@ -362,6 +362,90 @@ main {
     text-align: left;
 }
 
+.show-applicants {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.show-applicants button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.show-applicants button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.Applicants {
+    display: none;
+    list-style: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.Applicants.visible {
+    display: block;
+}
+
+.applicant-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.Applicants li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+select#Approval {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+select#Approval option[value="Approve"] {
+    color: #28a745;
+}
+
+select#Approval option[value="Reject"] {
+    color: #dc3545;
+}
+
+select#Approval:hover {
+    border-color: #007bff;
+}
+
+select#Approval:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
 @media (max-width: 768px) {
     .job {
         grid-template-columns: 1fr;
