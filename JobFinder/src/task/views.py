@@ -52,6 +52,8 @@ def task_list(request):
     context = {'tasks': tasks}
     return render(request, 'task/TaskList.html', context)
 
+
+
 def task_detail(request, slug):
     if not slug:  # Check if slug is None or empty
         raise Http404("Invalid task slug.")
@@ -61,14 +63,25 @@ def task_detail(request, slug):
     except Task.DoesNotExist:
         raise Http404("Task matching query does not exist.")
     
-    form = ApplyForm(request.POST, request.FILES) if request.method == 'POST' else ApplyForm()
 
-    if request.method == 'POST' and form.is_valid():
-        myform = form.save(commit=False)
-        myform.task = task_detail
-        myform.save()
 
-    context = {'task': task_detail, 'form1': form}
+    if request.method == 'POST':
+        form = ApplyForm(request.POST)
+        print("in form")
+        if form.is_valid():
+            myform = form.save(commit=False)
+            myform.Task = task_detail
+            myform.applicant = request.user
+            myform.save()
+            print("Application submitted successfully")
+        else:
+            print("Form is not valid")
+
+    else :
+        form = ApplyForm()
+
+
+    context = {'task': task_detail , 'form': form}
     return render(request, 'task/ApplyTask.html', context)
 
 
