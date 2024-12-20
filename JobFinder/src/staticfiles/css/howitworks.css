@@ -1,0 +1,196 @@
+/* General Styles */
+how_class h1, h2 {
+    font-size: 2rem;
+    color: #007BFF;
+    margin-bottom: 20px;
+  }
+  
+  how_class h2 {
+    font-size: 1.8rem;
+  }
+  
+  how_class p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  how_class a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  how_class a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Hero Section */
+  #how-it-works .hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  #how-it-works .hero h1 {
+    font-size: 3rem;
+  }
+  
+  #how-it-works .hero p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  /* Step Sections */
+  section {
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+  }
+  
+  .step-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  /* Step-specific Styles */
+  #step-1, #step-2, #step-3, #step-4, #step-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #step-1 .step-image, #step-2 .step-image, #step-3 .step-image, 
+  #step-4 .step-image, #step-5 .step-image {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+  
+  /* Call to Action Buttons */
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .link-button {
+    padding: 15px 25px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .link-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .link-button:active {
+    background-color: #004080;
+  }
+  
+  /* Accessibility Features */
+  button[type="submit"] {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    #how-it-works .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    section {
+      padding: 30px 15px;
+    }
+  
+    .cta-buttons {
+      flex-direction: column;
+    }
+  
+    .link-button {
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  
+    .step-image {
+      max-width: 90%;
+    }
+  }
+  
+  /* Custom Section for Features (Task Matching, Accessibility, Empowerment) */
+  how_class #features {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  how_class #features h2 {
+    font-size: 2rem;
+    color: #007BFF;
+  }
+  
+  how_class .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+  }
+  
+  how_class .feature-cards .card {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+  }
+  
+  how_class .feature-cards .card:hover {
+    transform: translateY(-5px);
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  how_class .feature-cards .card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  how_class .feature-cards .card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* End Section for Step 5 and Call to Action */
+  #step-5 {
+    background-color: #eef3f8;
+  }
+  
+  #step-5 p {
+    font-size: 1.1rem;
+  }
+  
+  #step-5 .step-image {
+    margin-top: 30px;
+  }
+  
