@@ -1,291 +1,271 @@
-* {
+* { 
+<<<<<<< HEAD
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --mainFontFamily: "Space Grotesk";
+    --mainFontFamily: "Space Grotesk", Arial, sans-serif;
     text-decoration: none;
 }
 
 body {
-    font-family: var(--mainFontFamily), Arial, sans-serif;
+    font-family: var(--mainFontFamily);
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+=======
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --mainFontFamily: "Space Grotesk", Arial, sans-serif;
+  text-decoration: none;
+}
+
+body {
+  font-family: var(--mainFontFamily);
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
+}
+
+/* Main Container */
+.main-container {
+<<<<<<< HEAD
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+=======
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
+}
+
+/* Task List Container */
+
+.task-list-container {
+<<<<<<< HEAD
+    flex: 1; /* Make it take the remaining space */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.task-list-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+=======
+  flex: 1; 
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+}
+
+.task-list-container h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #007bff;
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
+}
+
+/* Task Listings */
+.list-item {
+<<<<<<< HEAD
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%; /* Ensure it stretches to the full width */
+}
+
+.list-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-item .job {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Stretch the card content */
+}
+
+.list-item .job img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.list-item .text {
+    flex: 1; /* Allow text to grow and fill available space */
+}
+
+.list-item .buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.list-item .buttons .apply button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list-item .buttons .apply button:hover {
+    background-color: #0056b3;
+=======
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%; 
+}
+
+.list-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-item .job {
+  display: flex;
+  align-items: center;
+  width: 100%; 
+}
+
+.list-item .job img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.list-item .text {
+  flex: 1; 
+}
+
+.list-item .buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.list-item .buttons .apply button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-item .buttons .apply button:hover {
+  background-color: #0056b3;
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
 }
 
 /* Filter Container */
 .filter-container {
-    position: fixed;
-    top: 15vh;
-    left: 20px;
-    width: 250px;
-    background-color: #f0efef;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    z-index: 999;
+<<<<<<< HEAD
+    width: 25%;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
 }
 
 .filter-container h3 {
-    font-family: var(--mainFontFamily);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
+    color: #007bff;
 }
 
 .filter-item {
     margin-bottom: 15px;
-    text-align: center;
 }
 
 .filter-item label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #666;
+    color: #555;
+=======
+  width: 25%;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.filter-container h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #007bff;
+}
+
+.filter-item {
+  margin-bottom: 15px;
+}
+
+.filter-item label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
 }
 
 .filter-item select,
 .filter-item input[type="text"] {
+<<<<<<< HEAD
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 5px;
     margin-bottom: 10px;
+    background-color: #f9f9f9;
+=======
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+>>>>>>> 5bd36585b0eec25467d11a389d97b6ba5759e822
 }
 
 .filter-item select:focus,
 .filter-item input[type="text"]:focus {
-    border-color: #007bff;
-    outline: none;
+  border-color: #007bff;
+  outline: none;
 }
-
-/* Job List */
-.job-list {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 1200px;
-    position: relative;
-    top: 100px;
-}
-
-.job-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.job-list .text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.job-list .duration select {
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.list-item {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.list-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.list-item .job {
-    display: flex;
-    padding: 20px;
-    align-items: center;
-}
-
-.list-item .job img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.list-item .text {
-    flex-grow: 1;
-}
-
-.list-item .text h2 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
-
-.list-item .text .secondary-info {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    
-}
-
-.list-item .text .country {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.list-item .text .location, .list-item .duration {
-    font-size: 14px;
-    color: #777;
-
-
-}
-
-.list-item .buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.list-item .buttons .apply a {
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    box-shadow: none;
-    margin-left: 30px;
-}
-
-.list-item .buttons .apply a:hover {
-    background-color: #0056b3;
-}
-
-.apply a button {
-    background: #007bff;
-    border: none;
-    font-size: 20px;
-    margin-right: 5px;
-    pointer-events: none;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .filter-container {
-        top: 90px;
-        left: 10px;
-        width: 90%;
-        padding: 20px;
-    }
-
-    .job-list {
-        top: 150px;
-        left: 5%;
-        width: 90%;
-    }
-
-    .list-item .job {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .list-item .buttons {
-        justify-content: center;
-    }
-
-    .list-item .buttons .apply a {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .filter-container {
-        padding: 15px;
-    }
-
-    .list-item .job img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .list-item .text h2 {
-        font-size: 18px;
-    }
-
-    .list-item .text .location, .list-item .duration {
-        font-size: 12px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .filter-container {
-        max-width: 300px;
-        padding: 30px;
-    }
-
-    .job-list {
-        width: 70%;
-        margin: 40px auto;
-    }
-
-    .list-item .job img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .list-item .text h2 {
-        font-size: 24px;
-    }
-
-    .list-item .text .location, .list-item .duration {
-        font-size: 16px;
-    }
-
-    .list-item .buttons .apply a {
-        padding: 15px 30px;
-    }
-}
-/* General Spacing */
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.job-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-}
-
-/* Sidebar Styling */
-.filter-container {
-    position: sticky; /* Keep the filter fixed */
-    top: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
-
-/* Adjust spacing */
-.apply_job_form {
-    padding: 20px;
-}
-
-/* Fix for Content Overflow */
-.container {
-    overflow-x: hidden;
-}
-

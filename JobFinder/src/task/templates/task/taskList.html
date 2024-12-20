@@ -1,117 +1,118 @@
 {% extends 'baseGeneric.html' %}
 {% load static %}
 
-{% block title %}TaskList{% endblock %}
+{% block title %}Task List{% endblock %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/TaskList.css' %}" />
+{% endblock %}
 
 {% block content %}
-    <title>TaskList</title>
-  </head>
-  <body>
-    <div class="filter-container">
-      <h3>Filter</h3>
+<div class="main-container">
+  <!-- Filter Form (Left) -->
+  <div class="filter-container">
+    <h3>Filter</h3>
+    <form method="GET" action="{% url 'tasks:taskList' %}">
       <div class="filter-item">
         <label for="keyword">Search keyword</label>
-        <input type="text" id="keyword" placeholder="Enter keyword" />
+        <input type="text" id="keyword" name="keyword" placeholder="Enter keyword" value="{{ request.GET.keyword }}">
       </div>
       <div class="filter-item">
         <label for="location">Location</label>
-        <select id="location">
+        <select id="location" name="location">
           <option value="">Select location</option>
-          <option value="city1">City 1</option>
-          <option value="city2">City 2</option>
-          <option value="city3">City 3</option>
+          {% for location in locations %}
+          <option value="{{ location }}" {% if request.GET.location == location %}selected{% endif %}>{{ location }}</option>
+          {% endfor %}
         </select>
       </div>
       <div class="filter-item">
         <label for="category">Category</label>
-        <select id="category">
+        <select id="category" name="category">
           <option value="">Select category</option>
-          <option value="category1">Category 1</option>
-          <option value="category2">Category 2</option>
-          <option value="category3">Category 3</option>
+          {% for category in categories %}
+          <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category }}</option>
+          {% endfor %}
         </select>
       </div>
       <div class="filter-item">
         <label for="experience">Experience</label>
-        <select id="experience">
+        <select id="experience" name="experience">
           <option value="">Select experience</option>
-          <option value="1">1-2 years</option>
-          <option value="3">3-5 years</option>
-          <option value="5">5+ years</option>
+          <option value="1" {% if request.GET.experience == '1' %}selected{% endif %}>1-2 years</option>
+          <option value="3" {% if request.GET.experience == '3' %}selected{% endif %}>3-5 years</option>
+          <option value="5" {% if request.GET.experience == '5' %}selected{% endif %}>5+ years</option>
         </select>
       </div>
       <div class="filter-item">
         <label for="job-type">Job type</label>
-        <select id="job-type">
+        <select id="job-type" name="job_type">
           <option value="">Select job type</option>
-          <option value="full-time">Full-time</option>
-          <option value="part-time">Part-time</option>
-          <option value="contract">Contract</option>
+          <option value="full-time" {% if request.GET.job_type == 'full-time' %}selected{% endif %}>Full-time</option>
+          <option value="part-time" {% if request.GET.job_type == 'part-time' %}selected{% endif %}>Part-time</option>
+          <option value="contract" {% if request.GET.job_type == 'contract' %}selected{% endif %}>Contract</option>
         </select>
       </div>
       <div class="filter-item">
         <label for="qualification">Qualification</label>
-        <select id="qualification">
+        <select id="qualification" name="qualification">
           <option value="">Select qualification</option>
-          <option value="bachelor">Bachelor's</option>
-          <option value="master">Master's</option>
-          <option value="phd">PhD</option>
+          <option value="bachelor" {% if request.GET.qualification == 'bachelor' %}selected{% endif %}>Bachelor's</option>
+          <option value="master" {% if request.GET.qualification == 'master' %}selected{% endif %}>Master's</option>
+          <option value="phd" {% if request.GET.qualification == 'phd' %}selected{% endif %}>PhD</option>
         </select>
       </div>
       <div class="filter-item">
         <label for="gender">Gender</label>
-        <select id="gender">
+        <select id="gender" name="gender">
           <option value="">Select gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="male" {% if request.GET.gender == 'male' %}selected{% endif %}>Male</option>
+          <option value="female" {% if request.GET.gender == 'female' %}selected{% endif %}>Female</option>
+          <option value="other" {% if request.GET.gender == 'other' %}selected{% endif %}>Other</option>
         </select>
       </div>
+      <div class="filter-item">
+        <label for="gender">Disability </label>
+        <select id="gender" name="gender">
+          <option value="">Select gender</option>
+          <option value="male" {% if request.GET.gender == 'Yes' %}selected{% endif %}>Yes</option>
+          <option value="female" {% if request.GET.gender == 'No ' %}selected{% endif %}>No</option>
+        </select>
+      </div>
+      <button type="submit">Apply Filters</button>
+    </form>
+  </div>
+
+  <!-- Job Listings Section (Right) -->
+
+  <div class="task-list-container">
+    <h3>Job Listing</h3>
+
+    <!-- Sorting Dropdown -->
+    <div class="duration">
+      <label for="sort">Sort by:</label>
+      <select id="sort" name="sort">
+        <option value="recent" {% if request.GET.sort == 'recent' %}selected{% endif %}>Most Recent</option>
+        <option value="oldest" {% if request.GET.sort == 'oldest' %}selected{% endif %}>Oldest</option>
+      </select>
     </div>
 
-    <li>
-      <div class="job-list">
-        <h3>Job Listing</h3>
-        <div class="duration">
-          <label for="Filter">Filter</label>
-          <select id="Filter">
-            <option value="">Most Recent</option>
-            <option value="male">Oldest</option>
-            <option value="female">By Rating</option>
-          </select>
-        </div>
-      </div>
-    </li>
-    {% for task in tasks %}
-    <div class="job-list">
-      <ul>
-
-        <li
-          class="list-item"
-          data-category="category1"
-          data-experience="1"
-          data-job-type="part-time"
-          data-qualification="bachelor"
-          data-gender="male"
-        >
-
+    <!-- Task Listings -->
+    {% if tasks %}
+      <ul class="task-list">
+        {% for task in tasks %}
+        <li class="list-item" data-category="{{ task.category }}" data-experience="{{ task.experience }}" data-job-type="{{ task.job_type }}" data-qualification="{{ task.qualification }}" data-gender="{{ task.gender }}">
           <div class="job">
-
             <a href="#">
-              <img
-                src="data:image/png;base64,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"
-                alt="Job Thumbnail"
-              />
+              <img src="{% static 'img/task.png' %}" alt="Job Thumbnail" />
             </a>
             <div class="text">
-              <a href="{% url 'tasks:taskDetail' task.slug %}"><h2>{{task.title}}</h2></a>
+              <a href="{% url 'tasks:taskDetail' task.slug %}"><h2>{{ task.title }}</h2></a>
               <div class="secondary-info">
                 <div class="country">
-                  <div class="location"><p>location {{task.location}}</p></div>
-                  <div class="duration"><p>deadline{{task.deadline|date:'d M o'}}</p></div>
-				</div>
-
+                  <div class="location"><p>Location: {{ task.location }}</p></div>
+                  <div class="duration"><p>Deadline: {{ task.deadline|date:'d M Y' }}</p></div>
+                </div>
               </div>
             </div>
             <div class="buttons">
@@ -121,10 +122,11 @@
             </div>
           </div>
         </li>
+        {% endfor %}
       </ul>
-    </div>
-{% endfor %}
-  </body>
-</html>
-
+    {% else %}
+      <p class="no-tasks-message">No tasks found matching your criteria.</p>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}

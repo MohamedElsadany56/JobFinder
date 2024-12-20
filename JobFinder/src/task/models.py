@@ -17,43 +17,42 @@ class Task (models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, null=False,default='other')
     location = models.CharField(max_length=100, blank=True,default='')  # Optional field
     budget = models.DecimalField(max_digits=10, decimal_places=2,default=0.00)  # Budget in $
-    deadline = models.DateTimeField(null=True)  # Deadline field
+    deadline = models.DateTimeField(null=True) 
     publishedAt = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, blank=True, null=True)
+    applicants = models.ManyToManyField(User, related_name='applied_tasks', through='Application') # Many to many relationship with User 
     
     def __str__(self):
         return self.title
 
 
     def save(self, *args, **kwargs):
-        if not self.slug:  # Only generate slug if it's empty
-            self.slug = slugify(self.title)
-        super(Task, self).save(*args, **kwargs)
+        super(Task, self).save(*args, **kwargs)  
+        if not self.slug:
+            self.slug = f"{slugify(self.title)}-{self.id}"
+            super(Task, self).save(*args, **kwargs) 
+
 
  
-    # location to be added
-    # list of applicants
-
-
-# class ListApplicants(models.Model):
-#     name =  models.CharField(max_length=30)
-#     def __str__(self):
-#         return self.name
 
 
 class Apply(models.Model):
     Task = models.ForeignKey(Task, related_name='apply_job', on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
 
-
+    
     def __str__(self):
         return self.name
 
 
+class Application(models.Model):
+    task = models.ForeignKey(Task, related_name='applications', on_delete=models.CASCADE)
+    applicant = models.ForeignKey(User, related_name='applications', on_delete=models.CASCADE)
+    applied_at = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):
-        return self.name
+        return f"{self.applicant.username} applied for {self.task.title}"
 
 def updateStatus ():
     pass
