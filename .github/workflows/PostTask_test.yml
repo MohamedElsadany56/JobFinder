@@ -1,0 +1,43 @@
+name: Django CI Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  test-windows:
+    runs-on: windows-latest  # Windows runner
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.12.8'
+
+    - name: Install dependencies and setup environment
+      run: |
+        python -m venv venv                  # Create a virtual environment
+        .\venv\Scripts\activate              # Activate the virtual environment
+        python -m pip install --upgrade pip  # Upgrade pip
+        pip install -r requirements.txt     # Install project dependencies
+
+    - name: Run migrations
+      run: |
+        .\venv\Scripts\activate              # Activate the virtual environment
+        cd JobFinder\src                     # Navigate to the directory with manage.py
+        python manage.py makemigrations
+        python manage.py migrate
+
+    - name: Run tests
+      run: |
+        .\venv\Scripts\activate              # Activate the virtual environment
+        cd JobFinder\src                     # Navigate to the directory with manage.py
+        python manage.py test task
