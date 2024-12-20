@@ -17,7 +17,7 @@ class Task (models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, null=False,default='other')
     location = models.CharField(max_length=100, blank=True,default='')  # Optional field
     budget = models.DecimalField(max_digits=10, decimal_places=2,default=0.00)  # Budget in $
-    deadline = models.DateTimeField(null=True)  # Deadline field
+    deadline = models.DateTimeField(null=True) 
     publishedAt = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, blank=True, null=True)
@@ -28,9 +28,11 @@ class Task (models.Model):
 
 
     def save(self, *args, **kwargs):
-        if not self.slug:  # Only generate slug if it's empty
-            self.slug = slugify(self.title)
-        super(Task, self).save(*args, **kwargs)
+        super(Task, self).save(*args, **kwargs)  
+        if not self.slug:
+            self.slug = f"{slugify(self.title)}-{self.id}"
+            super(Task, self).save(*args, **kwargs) 
+
 
  
 
