@@ -117,9 +117,9 @@ def test_task_with_applicants(self):
             self.client.post(self.post_url, data)
             task = Task.objects.get(title='Applicant Task')
             applicant = User.objects.create_user(username='applicant', password='password')
-            Apply.objects.create(Task=task, applicant=applicant, name="Applicant Name", experience="5 years", desired_price=100)
-            self.assertEqual(task.apply_job.count(), 1)
-            self.assertEqual(task.apply_job.first().applicant.username, 'applicant')
+            Apply.objects.create(task=task, applicant=applicant)
+            self.assertEqual(task.applications.count(), 1)
+            self.assertEqual(task.applications.first().applicant.username, 'applicant')
     except Exception as e:
         self.fail(f"Test failed due to unexpected error: {e}")
 

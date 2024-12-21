@@ -35,9 +35,6 @@ class Task (models.Model):
             super(Task, self).save(*args, **kwargs) 
 
 
- 
-
-
 class Apply(models.Model):
     Task = models.ForeignKey(Task, related_name='apply_job', on_delete=models.CASCADE)
     applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='apply_job', null=True, blank=True)
@@ -49,7 +46,8 @@ class Apply(models.Model):
 
     
     def __str__(self):
-        return self.name
+
+        return f"{self.applicant.username} applied for {self.Task.title}"
 
 
 # class Application(models.Model):
@@ -59,6 +57,7 @@ class Apply(models.Model):
 
 #     def __str__(self):
 #         return f"{self.applicant.username} applied for {self.task.title}"
+
 
 def updateStatus ():
     pass

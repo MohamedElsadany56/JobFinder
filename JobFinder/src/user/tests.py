@@ -4,13 +4,6 @@ from django.contrib.auth.models import User
 from unittest.mock import patch
 
 
-
-
-
-
-
-
-
 if __name__ == '__main__':
     TestCase.main()
     
