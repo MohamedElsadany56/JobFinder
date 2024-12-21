@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Task, Application
+from .models import Task, Apply
 from .form import postTask
 from datetime import datetime, timedelta
 from django.utils.text import slugify
@@ -115,7 +115,7 @@ def test_task_with_applicants(self):
             self.client.post(self.post_url, data)
             task = Task.objects.get(title='Applicant Task')
             applicant = User.objects.create_user(username='applicant', password='password')
-            Application.objects.create(task=task, applicant=applicant)
+            Apply.objects.create(task=task, applicant=applicant)
             self.assertEqual(task.applications.count(), 1)
             self.assertEqual(task.applications.first().applicant.username, 'applicant')
     except Exception as e:
