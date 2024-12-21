@@ -86,13 +86,10 @@ def logout_view(request):
 
 def profile(request):
     profile = Profile.objects.get(user=request.user)
-<<<<<<< HEAD
     return render(request, 'user/ProfilePage.html', {'profile': profile})
 
 def logout(request):
     logout(request)
     return render(request, 'signup')
-=======
-    tasks = Task.objects.filter(owner=request.user)
-    return render(request, 'user/ProfilePage.html', {'profile': profile, 'tasks': tasks})
->>>>>>> main
+
+
