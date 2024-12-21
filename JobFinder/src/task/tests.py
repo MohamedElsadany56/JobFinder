@@ -100,10 +100,12 @@ def test_task_slug_is_generated(self):
             self.fail(f"Test failed due to unexpected database integrity error: {e}")
         except Exception as e:
             self.fail(f"Test failed due to unexpected error: {e}")
+
+
 def test_task_with_applicants(self):
     """Ensure tasks can correctly associate applicants."""
     try:
-        with transaction.atomic():  # Ensure atomic transaction
+        with transaction.atomic(): 
             data = {
                 'title': 'Applicant Task',
                 'taskDescription': 'Task with applicants.',
@@ -120,3 +122,4 @@ def test_task_with_applicants(self):
             self.assertEqual(task.applications.first().applicant.username, 'applicant')
     except Exception as e:
         self.fail(f"Test failed due to unexpected error: {e}")
+

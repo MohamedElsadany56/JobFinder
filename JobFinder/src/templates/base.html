@@ -19,6 +19,26 @@
 <body>
   <div class="page-container">
     <!-- Header Section -->
+<<<<<<< HEAD
+    <nav class="main-bar">
+        <ul>
+            <li><img src="{% static 'D:\Soft\JobFinder\JobFinder\src\static\img\logo.png' %}" alt="Logo"></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="{% url 'howitworks' %}">FAQ</a></li>
+            <li class="user-icon">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'user:profile' %}"><i class="fa-regular fa-user"></i></a>
+                {% else %}
+                    <div class="auth-links">
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'user:signup' %}">Sign Up</a>
+                    </div>
+                {% endif %}
+            </li>
+=======
     <header>
       <div class="logo">JobFinder</div>
       <nav>
@@ -32,9 +52,9 @@
           <a href="{% url 'user:signup' %}">Login</a>
           <a href="{% url 'logout' %}">logout</a>
 
+>>>>>>> 603fb8197e98ffd5c5b7b141b195dd8306213b01
         </ul>
-      </nav>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <main>
@@ -46,9 +66,9 @@
     <footer>
       <p>&copy; 2024 Empower. All rights reserved.</p>
       <ul class="social-links">
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">LinkedIn</a></li>
+      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
     </footer>
   </div>
