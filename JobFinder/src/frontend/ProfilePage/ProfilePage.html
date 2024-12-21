@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="statics/css/ProfilePage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>ProfilePage</title>
+  </head>
+  <body>
+    <main>
+      <div class="user-info">
+        <div class="user-info__avatar">
+          <img src="https://via.placeholder.com/150" alt="User Avatar" />
+        </div>
+        <div class="user-info__details">
+          <h1 class="user-info__name">John Doe</h1>
+          <div class="user-address"><p>cairo</p></div>
+          <div class="icons">
+            <ul>
+              <li>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+              </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-pen-to-square"></i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="meta-data">
+          <ul>
+            <li>
+              <h2>skills</h2>
+              <p>Figma</p>
+            </li>
+            <li>
+              <h2>Educations</h2>
+              <p>CS Nile</p>
+            </li>
+            <li>
+              <h2>Experience</h2>
+              <p>2 Years Relevant</p>
+            </li>
+            <li>
+              <h2>Salary</h2>
+              <p>3000 Expected / 4000 Current</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="job-list">
+        <ul>
+          <li>
+            <div class="text">
+              <h3>Currently Working on </h3>
+              <div class="duration">
+                <label for="Filter">Filter</label>
+                <select id="Filter">
+                  <option value="">Most Recent</option>
+                  <option value="male">Oldest</option>
+                  <option value="female">By Rating</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li
+            class="list-item"
+            data-category="category1"
+            data-experience="1"
+            data-job-type="part-time"
+            data-qualification="bachelor"
+            data-gender="male"
+          >
+            <div class="job">
+              <a href="#">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABF1BMVEX///8AAAD59/jorYzhmXTv7e/F093c3NztsY/mnXeUblninHiQYkqYcVz9+/zg3+DX1df18/SCYU5YWFgMCgi2xM+6inDlyvO/vb6fnp6CgYJMTEzMystPT08fIiTN3ObZse54d3gpKCk2NTVoaGhudnxNOS7quqDuwqqpqKh7e3vIxscWFhbq6OlDQ0NmbnSruMLKl3rjxfJeXl4rIBo+LyZ+XkyPjo4vLy88Ozu1s7SZmJnIo9umpaXduvCpfmajb1RsUUFMOS7Mi2kjGhUdGh+diqaynb1COkZqVnVANEZ9boTgwfGqi7vGr9JiVmiUeaNYSGBJQU65lcyBaY6LepMzKjgoIyrNtdkXExl3UT5fTUKIbmAdJhPJAAALvklEQVR4nO2de3vaRhbGR8IKON0OkqE2GMEirKbluktwzC2O6+wmadOm6WWbtEm//+dYpJmRZqQBdPUMPHr/sXVBmh9HmsuZMwcAcpfRnCh8TZpG/rfPX+YWPKSh6OKl125ARTFFFzCt4GIP4QKKLmJKNfYAKkpDdBFTarCXcCC6iClVcynqXwf0r42+rrvHaqKLmFKIsPNPVo++2uhR56gIH7EqCA9IB0QIzeZgVout0V7CUfyLzgZNXc2Yz5h39lb7O7SLMKFG80z7tP16msLkQrhpgvrZAVrpipIToaJYWQHaaUuSF6FiZwO4Tl2Q3AiVdRaAZeqC9diKQJj0oq7KGRC28LWu70qV+Hqyl/BJ7Guenp58d41L1U4PSEx4X6qU4isSYeyrnpycnnzKzIhzdKGXSfjyIvziZMOIrqzMUxPiMfpUJsKSQ/gfVLBFWkAVXedzMsAcCT0jpu2+VdFlzuQidB9T/CZWUxLiiuaxhIT/yKaq2UIopLV4OMJKaXoeVc/2Ej6LfK2p12DlS1gpnZHmNrIy6rVdn2HGXAkrpdh8GfZLrxFivjb8b/xyZdjzvs7dhpWbBMXKcmxxU8nbhklKlenoKWcbVs6FE55X8iX8Em2vGxE12Us4iXCVlSM8BvjyYQirAEZSJH/p/ssYjvSHJYRqJMH2XsJ2hEtpjgpCsYQuEqV/b/TVcRDO0Pkjjj8JOfyV2WETEifIDl2CgyaE+l5C/bBtqMJ9DnM7ypWkJjS2BUQhLY1DJ1Shau0AtGCkC0lNuKltqv2BxdOgX41QyxwAoQq3hT1FM+ABEKZXQVgQFoQFYUGYEaGGbv1AfhoRhIYbMvEkZ2+iUBsaq8n147w9wkIJNUP9Nvd5Cy4h2ykLsMPwLuZj4dPJHuh36jSib0oiCGG/PfE1GzK9aWDarcsxBxGC4XzWml02DAoSqvOWrQPEt2p6lxJLGBrj3jL07q7wOB6uvPPtsn/UjYsYbrbhuLf5byYDIcdPQXHgGn4ZHCVBi/7AJft9TKAKy8hP1YcSEPZDhNTBW7wrYEQYWKRQQ4fBJdo0gIkdcZYMhOFlPz4J6BErMUaEw+BHGpAm9I8PgHhCzyXqac2h7xgMYfAj+DOE0H9HddaG6jdCWgtj3ppMULzgaDKp9f1D1IqZBv2YGmTvkkyw9WlCP/ZwhT+Fm0N9fnOe9yw3tz3cVPcaCg6zN3UEdUTzZwhppyHEYUiWYRimOzk1Upn3kIhtLQx3DdWZmF4bNDAh+7qtqNJSbSIhtKvO/NvqqmNpbE2DZXpXQzZEtp2K6XlrPR4h/bo16eea7KytUMA95NiwQ9W/LiD+XgSNnniExFRIC+oQnpFy1JuX/T4NTdijbyHB+JBLyAaIUyaBzKpE23uAKcKFRt9BVkLSaqM/A9qIFgPfCD2lNZW5gZyEpDFc4reuTjeJfESfcM528+QkJMs0VuQfpkmEjRqNqDEtfsDishLiTrfSal+hf2ZsRQurVL2CenV0TWPRZ0tJuLtH7oxuIVBXxJD1oA2dPkKgtZCOsK0E5TWJ8HaGOncQmLhv7o4R2RbflpsQ0kttsJakyrScLTR1CJromBkm3DzWUGJCbogCahJJT2DR2NSuZCDIsSHVZshIqPLC8lDtQbX3PXJWhxlbeH6RmgFlJSQUowUSLrFK25DWnKlL/YnxmrSEXmOIzoNMkwg8AE+oN+B5MXwvh/t+ykAYHD0R9wV+kYhJsRsuhDgM+Gmg90b2ZSEEqG3w2gPM4PVMjA5N4nuoaNPSvjavptJlIUQ+xYXX9cTvmjdqQIPhtl/Vjv1q06IGx1fe94AQbWnew037Z7XmVPQPHF8yvm5o2m16ELxpDIdru922+mPa522sWxYeZoGh7fl8ZCCkJxzINrMjeJwEoQQiTuh5CyBTi5+zCsKCsCAsCJHcqjFyLN7hEQJDb84Hl+uhxoOMtvwkLHkIobYm82j1QTBoFIJxNaFIb0A4IWgwo8E163LSbN5ahEgazcZS9EtD2U9s2p8LrpQU6slASFwtNCLdIU0DiMcdYgm5CE3fJbU/c+JOrSQg5D6F/rDC4B2OrrJwQm8a9NXri4uLN9/jLd9lzXENxxCqtYQSkgw9318g/YA265pvZH19mVBzk4rFEEVIHsI/MWH3LdoeUs9x8iSsEoyAST3zIwb8qfsOP15Z9t+EEuKq8g0xYfc5CiiwwM4yHxAhrmh+JibsPn/l7rCPhpCx4dPuhhDtGBwNIb7vewLY/QXtuD2W91CFCjHi0xcO4PO/0LZJ1aWRFu+7t9vytYhtD/GURP1d1wX8gDY7FGCz1o4gNzPpio8o1oZeBO2vv7x79wPZ8EdQwFJiqMlFFNwv5a709b8BzlzaLmkSEo5H4XL6PZq4Ywte1Lvo8SFn+NSkIhYO34acYPZbui0EVhxAfmdPNKHjiqEKudTZxh7etlvRNGnLWJciCGhaJM1FQw2WMsbQQsb20KMwqo3VSue6S1NLBkIVu31zwJOHMEcVhAVhQVgQFoQFYUFYEBaEWRHihDrHSggBbKztmj1fGXlAiieEYz+JoF0OZo2AWmJJMPfkCrDOqDUzhIJjJhdrPNUkmD9UOVkg2awRMZwYYcmRNSKYFoP5bdHwrwTEkwxZI3juwvUxZY1Q/afwo18w3+2pKak0Fk7oubw/OoudfybBGJTTm+cTj6xb8TFRAMcLkYl8kjXCz94Nqv1mQt2Wxce1kV+SqV/syhqRXKp4QmYOmMoawV/Qm1BCCdl5/IsjzDiACf/0s0YcWyzGtqwRxxNPg+ew32MLdo8uJiqcNQJv6wnrUvkIgYWRcNYIlLsFR026MtaTHkeLK462pI0Qa0N+1gg/tQkI/XzVTvV5iGL7pYCXNWLE+QYiildDCR5baJwU+nq43xpV0j2lXCtRb1PcrBF1+WzoIAZyfzDVBQgHo+wSt6oRTRjIGhGMp4CrWcSsEa2WbcpXlyIIUB6g3w7o2GZ43VOM+0nYHnoUatkcmnou7lIpCNUia0RBWBAWhAVhQVgQFoQFoXyEppp81WQCaePxWGs8DOGdIlp3+RKWSuLQsJxC5ElY+SyOzdXnSt6EU3FwrqZ5E5Yq5+LoNjqv5P2UOlZ8KYzv5RSVI1/CUqU0fXx28/A6ezwt4WLkTLhhFCVSgNwJhStLwqr0hNWUhDjU4l4uwhOH8B4VTUtJCLDDXjQTK4fwBBVslBYQWOhCNzIZ0X1IP6GCWakJSWjhnUSIDuB3uFzD1ITkMVXudzYSdAHybjO+OD09wRbM4CEFwI+efHZztk13NOD51tOy0adPz7wyNTIg5M5ih/TSB7yPcn5GsrMABMZi/53Q0BtZMG8qSgsjE0JgRInU/vwt1t+5c3nKChAANcKDOicnpwqYjSU7+W+BhTVs7bud13kyOKEZeaiVQTvBqNysdepbb9em+r/jSFVTGtU7tWbkDvf/AdMjygKPnNibAAAAAElFTkSuQmCC"
+                  alt="Job Thumbnail"
+                />
+              </a>
+              <div class="text job-info">
+                <a href="#"><h2>Software Engineer</h2></a>
+                <div class="secondary-info">
+                  <div class="country">
+                    <div class="location"><p>California , USA</p></div>
+                    <div class="duration"><p>Part-time</p></div>
+                  </div>
+                </div>
+                <div class="status pending">pending</div>
+              </div>
+              <div class="drop-down">
+                <label for="status">status</label>
+                <select id="status">
+                  <option value="pending">pending</option>
+                  <option value="working-on">working-on</option>
+                  <option value="done">done</option>
+                </select>
+            </div>
+              </div>
+          </li>
+        </ul>
+        
+      </div>
+      <div class="apply-list">
+        <ul>
+            <li>
+                <div class="text">
+                    <h3>Applied on</h3>
+                    <div class="duration">
+                        <label for="FilterApplied">Filter</label>
+                        <select id="FilterApplied">
+                            <option value="">Most Recent</option>
+                            <option value="oldest">Oldest</option>
+                            <option value="rating">By Rating</option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li
+                class="list-item"
+                data-category="category2"
+                data-experience="2"
+                data-job-type="full-time"
+                data-qualification="master"
+                data-gender="female"
+            >
+                <div class="job">
+                    <a href="#">
+                        <img
+                            src="data:image/png;base64,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"
+                            alt="Job Thumbnail"
+                        />
+                    </a>
+                    <div class="text job-info">
+                        <a href="#"><h2>Data Scientist</h2></a>
+                        <div class="secondary-info">
+                            <div class="country">
+                                <div class="location"><p>New York, USA</p></div>
+                                <div class="duration"><p>Full-time</p></div>
+                            </div>
+                        </div>
+                        <div class="status Applied">Applied</div>
+                    </div>
+                    
+                </div>
+            </li>
+            <li
+                class="list-item"
+                data-category="category3"
+                data-experience="3"
+                data-job-type="contract"
+                data-qualification="phd"
+                data-gender="female"
+            >
+                <div class="job">
+                    <a href="#">
+                        <img
+                            src="data:image/png;base64,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"
+                            alt="Job Thumbnail"
+                        />
+                    </a>
+                    <div class="text job-info">
+                        <a href="#"><h2>Research Scientist</h2></a>
+                        <div class="secondary-info">
+                            <div class="country">
+                                <div class="location"><p>Boston, USA</p></div>
+                                <div class="duration"><p>Contract</p></div>
+                            </div>
+                        </div>
+                        <div class="status applied">Applied</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+  <div class="created-list">
+    <ul>
+        <li>
+            <div class="text">
+                <h3>Created Tasks</h3>
+                <div class="duration">
+                    <label for="FilterCreated">Filter</label>
+                    <select id="FilterCreated">
+                        <option value="">Most Recent</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="rating">By Rating</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <li class="list-item">
+            <div class="job">
+                <a href="#">
+                    <img src="data:image/png;base64,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" alt="Job Thumbnail" />
+                </a>
+                <div class="text job-info">
+                    <a href="#"><h2>Task Title</h2></a>
+                    <div class="secondary-info">
+                        <div class="country">
+                            <div class="location"><p>Remote</p></div>
+                            <div class="duration"><p>Freelance</p></div>
+                        </div>
+                    </div>
+                    <div class="status created">Created</div>
+                </div>
+                <div class="show-applicants">
+                  <button>Show Applicants</button>
+                </div>
+              </div>
+              <ul class="Applicants">
+                <li>
+                    <div class="applicant-info">
+                        <div class="name">mohamed</div>
+                        <div class="past-expreince">CS</div>
+                        <div class="price">400$</div>
+                    </div>
+                    <select name="Approval" id="Approval">
+                        <option value="" disabled selected>Select Action</option>
+                        <option value="Approve">Approve</option>
+                        <option value="Reject">Reject</option>
+                    </select>
+                </li>
+              </ul>
+        </li>
+    </ul>
+</div>
+    </main>
+    <script src="statics/js/ProfilePage.js"></script>
+  </body>
+</html>
