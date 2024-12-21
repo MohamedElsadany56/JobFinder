@@ -9,10 +9,8 @@
 {% endblock %}
 
 {% block content %}
-<main class="signup-container">
-  <div class="signup-form">
-
-
+<main class="main-body">
+  <div class="form signup-container">
     <!-- Signup Form -->
     <form method="post">
       {% csrf_token %}
@@ -23,6 +21,7 @@
           {% endfor %}
         </ul>
       {% endif %}
+      <h2 style="color : black;">Login to Your Account</h2>
       <div class="form-group">
         <label for="UserName">Username</label>
         <input
@@ -73,10 +72,9 @@
       <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
     
-
     <!-- Redirect to Login -->
     <div class="registerNow">
-      <p>Already have an account? <a href="login.html">Login!</a></p>
+      <p>Already have an account? <a href="{% url 'login' %}">Login!</a></p>
     </div>
   </div>
 </main>
