@@ -21,7 +21,7 @@ class Task (models.Model):
     publishedAt = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, blank=True, null=True)
-    applicants = models.ManyToManyField(User, related_name='applied_tasks', through='Application') # Many to many relationship with User 
+    applicants = models.ManyToManyField(User, related_name='applied_tasks', through='Apply') # Many to many relationship with User 
     
     def __str__(self):
         return self.title
@@ -37,21 +37,21 @@ class Task (models.Model):
  
 
 
+
+
+
 class Apply(models.Model):
     Task = models.ForeignKey(Task, related_name='apply_job', on_delete=models.CASCADE)
+    applicant = models.ForeignKey(User, related_name='apply_job', on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
+    experience= models.TextField(max_length=100)
+    desired_price=models.IntegerField()
+    # has_disability = models.BooleanField(default=False)  # New field
+    # disability_description = models.TextField(blank=True, null=True)  # Optional for disability details
+ 
 
     def __str__(self):
-        return self.name
-
-
-class Application(models.Model):
-    task = models.ForeignKey(Task, related_name='applications', on_delete=models.CASCADE)
-    applicant = models.ForeignKey(User, related_name='applications', on_delete=models.CASCADE)
-    applied_at = models.DateTimeField(auto_now_add=True)  
-
-    def __str__(self):
-        return f"{self.applicant.username} applied for {self.task.title}"
+        return f"{self.applicant.username} applied for {self.Task.title}"
 
 def updateStatus ():
     pass
