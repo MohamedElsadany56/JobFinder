@@ -1,14 +1,10 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.contrib.auth import login ,logout
+from django.contrib.auth import login
 from django.core.mail import send_mail
 from .models import Profile
-
-
-
-
 from task.models import Task
-
+from django.contrib.auth import login
 def signup(request):
     if request.method == "POST":
         username = request.POST.get("UserName")
@@ -84,16 +80,10 @@ def verify_email(request):
 
     return render(request, "user/verify_email.html")
 
-def logout_view(request):
-    logout(request)
-    return redirect("user:signup")  
+
+
 
 def profile(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'user/ProfilePage.html', {'profile': profile})
-
-def logout(request):
-    logout(request)
-    return render(request, 'signup')
-
-
+    tasks = Task.objects.filter(owner=request.user)
+    return render(request, 'user/ProfilePage.html', {'profile': profile, 'tasks': tasks})
