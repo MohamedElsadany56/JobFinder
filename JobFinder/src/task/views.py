@@ -52,6 +52,8 @@ def task_list(request):
     context = {'tasks': tasks}
     return render(request, 'task/TaskList.html', context)
 
+
+
 def task_detail(request, slug):
     if not slug:  # Check if slug is None or empty
         raise Http404("Invalid task slug.")
