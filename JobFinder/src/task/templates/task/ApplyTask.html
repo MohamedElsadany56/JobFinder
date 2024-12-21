@@ -1,5 +1,6 @@
 {% extends 'baseGeneric.html' %}
 {% load static %}
+{% load bootstrap5 %}
 
 {% block title %}{{task}}{% endblock %}
 
@@ -48,46 +49,9 @@
       <div class="main-header">
         <h2>Apply For A Task</h2>
       </div>
-
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <ul>
-          <li class="Employer">
-            <a href="#"><i class="fa-regular fa-user"></i>Has Disability</a>
-          </li>
-          <li class="Candidate">
-            <a href="#"
-              ><i class="fa-solid fa-briefcase"></i>Does not have
-              Disability</a
-            >
-          </li>
-        </ul>
-        <input
-          type="text"
-          id="UserName"
-          class="UserName"
-          name="UserName"
-          placeholder="Enter Your Name"
-        />
-        <input
-          type="text"
-          id="PastExperience"
-          class="PastExperience"
-          name="PastExperience"
-          placeholder="Enter Your PastExperience"
-        />
-        <input
-          type="text"
-          id="price"
-          name="price"
-          placeholder="Enter Required Price"
-        />
-        <textarea
-          id="Jop"
-          class="Jop"
-          name="Jop"
-          placeholder="Enter Disability Description"
-        ></textarea>
+        {% bootstrap_form form %}
         <button type="submit" id="button">Apply</button>
       </form>
     </div>
