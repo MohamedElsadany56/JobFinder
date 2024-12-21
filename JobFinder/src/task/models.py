@@ -40,7 +40,7 @@ class Task (models.Model):
 
 class Apply(models.Model):
     Task = models.ForeignKey(Task, related_name='apply_job', on_delete=models.CASCADE)
-    applicant = models.ForeignKey(User, related_name='apply_job', on_delete=models.CASCADE)
+    applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='apply_job', null=True, blank=True)
     name = models.CharField(max_length=50)
     experience= models.TextField(max_length=100)
     desired_price=models.IntegerField()
