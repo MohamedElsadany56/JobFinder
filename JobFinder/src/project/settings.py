@@ -27,7 +27,14 @@ SECRET_KEY = 'django-insecure-mea1ux*uytu%1o6*lw@%^k8a03!fi+lkj3roa6cxo=%g^a@03u
 DEBUG = True
 #TEMPLATE_DEBUG =True 
 ALLOWED_HOSTS = ['*']
+<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+=======
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+>>>>>>> main
 LOGIN_URL = '/user/login/'
 #logging
 LOGGING = {
@@ -47,6 +54,10 @@ LOGGING = {
         },
     },
 }
+# Session timeout in seconds (e.g., 30 minutes)
+SESSION_COOKIE_AGE = 1800  # 30 minutes
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expire session when the browser is closed
+
 
 
 # Application definition
@@ -111,19 +122,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'your_db_name',
-#         'USER': 'your_db_user',
-#         'PASSWORD': 'your_db_password',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-
-
 
 
 # Password validation
@@ -162,9 +160,13 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_buid', 'static')
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
+MEDIA_URL = '/media/'
+MEDIA_DIRS = [
+  BASE_DIR / "/media/",
+    "/var/www/media/",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
