@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Task, Application
+from .models import Task, Apply
 from .form import postTask
 from datetime import datetime, timedelta
 from django.utils.text import slugify
