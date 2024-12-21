@@ -3,12 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login ,logout
 from django.core.mail import send_mail
 from .models import Profile
-<<<<<<< HEAD
-from django.contrib.auth import login ,logout
-=======
 from task.models import Task
-from django.contrib.auth import login
->>>>>>> main
+
 def signup(request):
     if request.method == "POST":
         username = request.POST.get("UserName")
