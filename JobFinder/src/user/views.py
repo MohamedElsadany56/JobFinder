@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.core.mail import send_mail
 from .models import Profile
-from django.contrib.auth import login
+from django.contrib.auth import login ,logout
 def signup(request):
     if request.method == "POST":
         username = request.POST.get("UserName")
@@ -84,4 +84,8 @@ def verify_email(request):
 
 def profile(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'user/profile.html', {'profile': profile})
+    return render(request, 'user/ProfilePage.html', {'profile': profile})
+
+def logout(request):
+    logout(request)
+    return render(request, 'signup')

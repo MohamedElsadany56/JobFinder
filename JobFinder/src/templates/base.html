@@ -19,6 +19,7 @@
 <body>
   <div class="page-container">
     <!-- Header Section -->
+<<<<<<< HEAD
     <nav class="main-bar">
         <ul>
             <li><img src="{% static 'D:\Soft\JobFinder\JobFinder\src\static\img\logo.png' %}" alt="Logo"></li>
@@ -37,6 +38,21 @@
                     </div>
                 {% endif %}
             </li>
+=======
+    <header>
+      <div class="logo">JobFinder</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="{% url 'howitworks' %}">How It Works</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <a href="{% url 'login' %}">Sign up</a>
+          <a href="{% url 'user:signup' %}">Login</a>
+          <a href="{% url 'logout' %}">logout</a>
+
+>>>>>>> 603fb8197e98ffd5c5b7b141b195dd8306213b01
         </ul>
     </nav>
 
