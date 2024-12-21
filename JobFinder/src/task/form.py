@@ -12,4 +12,4 @@ class postTask(forms.ModelForm):
 class ApplyForm(forms.ModelForm):
     class Meta:
         model = Apply
-        fields = ['name']
+        fields = ['name','experience','desired_price']
