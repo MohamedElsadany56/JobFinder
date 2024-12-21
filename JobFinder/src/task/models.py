@@ -35,35 +35,19 @@ class Task (models.Model):
             super(Task, self).save(*args, **kwargs) 
 
 
- 
-
-
-
-
-
 class Apply(models.Model):
     Task = models.ForeignKey(Task, related_name='apply_job', on_delete=models.CASCADE)
-<<<<<<< HEAD
-    applicant = models.ForeignKey(User, related_name='apply_job', on_delete=models.CASCADE)
-=======
     applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='apply_job', null=True, blank=True)
->>>>>>> 1a3109d9079cb064776de88ce05c8a7072f8d888
     name = models.CharField(max_length=50)
     experience= models.TextField(max_length=100)
     desired_price=models.IntegerField()
     # has_disability = models.BooleanField(default=False)  # New field
     # disability_description = models.TextField(blank=True, null=True)  # Optional for disability details
-<<<<<<< HEAD
- 
-=======
->>>>>>> 1a3109d9079cb064776de88ce05c8a7072f8d888
 
     
     def __str__(self):
-<<<<<<< HEAD
+
         return f"{self.applicant.username} applied for {self.Task.title}"
-=======
-        return self.name
 
 
 # class Application(models.Model):
@@ -73,7 +57,7 @@ class Apply(models.Model):
 
 #     def __str__(self):
 #         return f"{self.applicant.username} applied for {self.task.title}"
->>>>>>> 1a3109d9079cb064776de88ce05c8a7072f8d888
+
 
 def updateStatus ():
     pass

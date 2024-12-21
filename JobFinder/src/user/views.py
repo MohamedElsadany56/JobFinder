@@ -82,7 +82,7 @@ def verify_email(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("/login")  
+    return redirect("user:signup")  
 
 def profile(request):
     profile = Profile.objects.get(user=request.user)
