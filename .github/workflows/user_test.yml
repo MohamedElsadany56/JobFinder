@@ -1,37 +1,41 @@
-name: Run Tests
+name: Django CI Test (Windows)
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: windows-latest  # Use a Windows runner
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Check out the repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12.8'
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.12.8'
 
-      - name: Run migrations
-        run: |
-          pip install -r requirements.txt
-          .\venv\Scripts\activate              # Activate the virtual environment
-          cd JobFinder\src                     # Navigate to the directory with manage.py
-          python manage.py makemigrations
-          python manage.py migrate
+    - name: Install dependencies and setup environment
+      run: |
+        python -m venv venv                  # Create a virtual environment
+        .\venv\Scripts\activate              # Activate the virtual environment
+        python -m pip install --upgrade pip # Upgrade pip
+        pip install -r requirements.txt     # Install project dependencies
 
-      - name: Run tests
-        run: |
-          .\venv\Scripts\activate              # Activate the virtual environment
-          cd JobFinder\src                     # Navigate to the directory with manage.py
-          python manage.py test user
+    - name: Run migrations
+      run: |
+        pip install -r requirements.txt
+        .\venv\Scripts\activate              # Activate the virtual environment
+        cd JobFinder\src                     # Navigate to the directory with manage.py
+        python manage.py makemigrations
+        python manage.py migrate
 
+    - name: Run tests
+      run: |
+        .\venv\Scripts\activate              # Activate the virtual environment
+        cd JobFinder\src                     # Navigate to the directory with manage.py
+        python manage.py test user
