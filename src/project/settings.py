@@ -61,12 +61,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'task',
-    'taskCreator',
-    'taskSeeker',
-    'utilities',
-    'review',
-    'match',
-    'invoice',
     'rest_framework',
     'bootstrap5',
 
