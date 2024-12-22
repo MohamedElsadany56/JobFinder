@@ -1,0 +1,8 @@
+signup: http://127.0.0.1:8000/user/signup/
+login : http://127.0.0.1:8000/user/login/
+tasks : http://127.0.0.1:8000/tasks/ #(to be added)
+Home page or index : http://127.0.0.1:8000//
+verify_email : http://127.0.0.1:8000/user/verify_email/
+
+admin Django :http://127.0.0.1:8000/admin/login/?next=/admin/
+username and password  in group description or you can make a super user

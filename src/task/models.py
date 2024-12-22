@@ -1,6 +1,5 @@
 from django.db import models
 from django.forms import ValidationError
-from taskCreator.models import TaskCreator
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 import uuid
