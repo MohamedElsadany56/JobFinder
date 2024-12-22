@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #444;
+    text-align: center;
+}
+
+.task-details {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.applicants-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.applicants-list table th,
+.applicants-list table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.applicants-list table th {
+    background: #f4f4f9;
+}
+
+.applicants-list table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.applicants-list table tr:hover {
+    background: #f1f1f1;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-accept {
+    background-color: green;
+}
+
+.btn-reject {
+    background-color: red;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

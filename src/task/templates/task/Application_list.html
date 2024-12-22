@@ -1,0 +1,72 @@
+{% extends 'baseGeneric.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}Applicants for {{ task.title }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/Application_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container my-4">
+        <h1 class="text-center mb-4">Applicants for Task: {{ task.title }}</h1>
+        
+        <div class="task-details mb-4">
+            <p><strong>Description:</strong> {{ task.taskDescription }}</p>
+            <p><strong>Category:</strong> {{ task.get_category_display }}</p>
+            <p><strong>Location:</strong> {{ task.location }}</p>
+            <p><strong>Budget:</strong> ${{ task.budget }}</p>
+            <p><strong>Deadline:</strong> {{ task.deadline }}</p>
+        </div>
+    
+        <h2 class="text-center mb-4">Applicants</h2>
+        {% if applicants %}
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Applicant Name</th>
+                            <th>Experience</th>
+                            <th>Desired Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for applicant in applicants %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'user:profile' applicant.applicant.username %}">
+                                    {{ applicant.name }}
+                                </a>
+                            </td>
+                            <td>{{ applicant.experience }}</td>
+                            <td>${{ applicant.desired_price }}</td>
+                            <td>{{ applicant.status }}</td>
+                            <td>
+                                {% if user == task.owner %}
+                                    <form method="post" action="{% url 'tasks:update_applicant_status' applicant.id 'approve' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                                    </form>
+                                    <form method="post" action="{% url 'tasks:update_applicant_status' applicant.id 'reject' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                    </form>
+                                {% else %}
+                                    <p>Only the task creator can manage applications.</p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-center">No applicants for this task yet.</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

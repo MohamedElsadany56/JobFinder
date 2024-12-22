@@ -1,0 +1,72 @@
+{% extends 'baseGeneric.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}{{ task.title }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ApplyTask.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+  <div class="main-body">
+    <div class="task-box">
+      <ul>
+        <li class="task-details">
+          <h3>{{ task.title }}</h3>
+          <div class="task-info">
+            <div class="price-location">
+              <span class="price">
+                <i class="fas fa-dollar-sign"></i> {{ task.budget }}
+              </span>
+              <span class="location">
+                <i class="fas fa-map-marker-alt"></i> {{ task.location }}
+              </span>
+            </div>
+            <div class="time-info">
+              <span class="deadline">
+                <i class="far fa-calendar-alt"></i> {{ task.deadline }}
+              </span>
+              <span class="published-at">
+                <i class="far fa-clock"></i> Published: {{ task.publishedAt }}
+              </span>
+            </div>
+            <div class="category-info">
+              <span class="category">
+                <i class="fas fa-tag"></i> {{ task.get_category_display }}
+              </span>
+            </div>
+            <div class="owner-info">
+              <span class="owner">
+                <i class="fas fa-user"></i> Created by: 
+                <a href="/user/profile/{{ task.owner.username }}" class="profile-link">{{ task.owner.username }}</a>
+              </span>
+            </div>
+            
+            <div class="applicants-info">
+              <span class="applicants-count">
+                <i class="fas fa-users"></i> Applicants: {{ task.applicants.count }}
+              </span>
+            </div>
+          </div>
+          <p class="task-description">
+            {{ task.taskDescription }}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="form">
+      <div class="main-header">
+        <h2>Apply For A Task</h2>
+      </div>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" id="button">Apply</button>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}
+<script src="{% static 'js/ApplyTask.js' %}"></script>

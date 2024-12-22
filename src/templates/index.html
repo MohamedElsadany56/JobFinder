@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section id="home" class="hero">
+  <h1>Empowering Communities, One Task at a Time</h1>
+  <p>Join our inclusive platform to connect, collaborate, and create opportunities.</p>
+  {% if request.user.is_authenticated %}
+  <div class="cta-buttons">
+    <a href="{% url 'tasks:postTask' %}" class="link-button">Post a Task</a>
+    <a href="{% url 'tasks:taskList' %}" class="link-button">Find a Task</a>
+  </div>
+</section>
+{% else %}
+<a href="{% url 'login' %}"class="link-button" >Login</a> 
+{% endif %}
+<section id="features">
+  <h2>Our Features</h2>
+  <div class="feature-cards">
+    <div class="card">
+      <p ><a style="color: beige;", href="{% url 'tasks:taskList' %}">Task Matching System</a></p>
+      <p>Our intelligent Task Matching System connects individuals with the right tasks based on their skills, preferences, and availability. This system ensures that every task is matched with the perfect person, fostering efficiency and collaboration.</p>
+    </div>
+    <div class="card">
+      <p><a style="color: beige;", href="#accessibility-features">Accessibility Features</a></p>
+      <p>We believe in inclusivity for all. Our platform offers a range of accessibility features, ensuring that everyone, regardless of ability, can seamlessly participate and contribute to their community. With easy-to-navigate interfaces and assistive technology support, no one is left behind.</p>
+    </div>
+    <div class="card">
+      <p><a style="color: beige;", href="#empowerment-for-all">Empowerment for All</a></p>
+      <p>Our mission goes beyond just task completion. We are dedicated to empowering individuals by giving them the opportunity to help others and, in turn, build a stronger, more resilient community. Through our platform, everyone has the chance to make a difference, regardless of their background.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

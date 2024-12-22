@@ -1,0 +1,70 @@
+{% extends 'baseGeneric.html' %}
+{% load static %}
+{% block title %}{{ profile.user.username }}'s Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ProfilePage2.css' %}">
+{% endblock %}
+
+{% block content %}
+  <!-- User Information Section -->
+  <div class="user-info">
+    <div class="user-info__avatar">
+      <img src="https://via.placeholder.com/150" alt="User Avatar" />
+    </div>
+    <div class="user-info__details">
+      <h1 class="user-info__name">{{ profile.user.username }}</h1>
+      <div class="user-address"><p>Cairo</p></div>
+      <div class="icons">
+        <ul>
+          <li><a href="mailto:{{ profile.user.email }}"><i class="fa-solid fa-envelope"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Created Tasks Section -->
+  <div class="created-tasks">
+    <h2>Your Created Tasks</h2>
+    {% if created_tasks %}
+    <div class="tasks-list">
+      {% for task in created_tasks %}
+      <div class="task-item">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.taskDescription }}</p>
+        <small>Budget: ${{ task.budget }} | Deadline: {{ task.deadline|date:"d M Y" }}</small>
+        <a href="{% url 'tasks:view_applicants' task.slug %}" class="btn btn-primary">View Applicants</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-tasks">You haven't created any tasks yet.</p>
+    {% endif %}
+  </div>
+
+  <!-- Applied Tasks Section -->
+  <div class="applied-tasks">
+    <h2>Tasks You've Applied For</h2>
+    {% if applied_tasks %}
+    <div class="tasks-list">
+      {% for application in applied_tasks %}
+      <div class="task-item">
+        <h3>{{ application.Task.title }}</h3>
+        <p>{{ application.Task.taskDescription }}</p>
+        <small>Status: {{ application.status }}</small>
+        <a href="{% url 'tasks:taskDetail' application.Task.slug %}" class="btn btn-secondary">View Details</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-tasks">You haven't applied for any tasks yet.</p>
+    {% endif %}
+  </div>
+
+{% block extra_js %}
+<script src="{% static 'js/ProfilePage.js' %}"></script>
+{% endblock %}
+{% endblock %}
