@@ -37,5 +37,5 @@ jobs:
     - name: Run tests
       run: |
         .\venv\Scripts\activate              # Activate the virtual environment
-        cd JobFinder\src                     # Navigate to the directory with manage.py
+        cd src                     # Navigate to the directory with manage.py
         python manage.py test user
