@@ -10,4 +10,9 @@ soupsieve==2.6
 sqlparse==0.5.2
 tzdata==2024.2
 pillow==11.0.0
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary
+python-dotenv
 
